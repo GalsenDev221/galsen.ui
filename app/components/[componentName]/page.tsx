@@ -43,7 +43,7 @@ export default async function Page({ params }: PageProps) {
 
         {/* TODO: expose the component name as a prop */}
         {
-          htmlFiles ?
+          htmlFiles.length ?
             htmlFiles
               .map((file: string) => <UIComponentPreview key={file} category={params.componentName} file={file} />) :
             <p>Empty</p>
