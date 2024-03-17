@@ -1,6 +1,7 @@
 "use client"
 import { useEffect, useState } from "react";
 import { componentPreviewHtml } from "@/utils/transformers";
+import { removeExtension } from "@/utils";
 // import { getFiles } from "@/utils/getFiles";
 
 type PropsType = {
@@ -19,9 +20,9 @@ export default function UIComponentPreview({ file, category }: PropsType) {
   }
 
   return (
-    <>
-      <p>{file.replace(".html", "")}</p>
-      <section className="mt-8 p-4 border grid grid-cols-2">
+    <div className="mt-8">
+      <p>{removeExtension('.html', file)}</p>
+      <section className="mt-0 p-4 border grid grid-cols-2">
         <h2 className="sr-only">Preview + Code</h2>
         <article className="pr-2 overflow-y-auto space-y-4">
           <h3 className="text-center text-neutral-300 font-semibold text-xl">Code HTML</h3>
@@ -32,7 +33,7 @@ export default function UIComponentPreview({ file, category }: PropsType) {
           {code ? <PreviewIframe code={code} /> : <p>Loading...</p>}
         </article>
       </section>
-    </>
+    </div>
   )
 }
 
