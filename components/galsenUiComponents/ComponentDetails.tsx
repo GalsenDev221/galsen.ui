@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react";
 import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels";
 import { componentPreviewHtml } from "@/utils/transformers";
+import Prism from 'prismjs';
+require('prismjs/components/prism-cshtml');
 
 type PropsType = {
   title: string;
@@ -15,6 +17,7 @@ const ComponentDetails = ({ title, file, category }: PropsType) => {
 
   const [code, setCode] = useState<string | undefined>("");
   useEffect(() => {
+    Prism.highlightAll();
     fetchUiComponent();
   });
 
@@ -48,7 +51,7 @@ const ComponentDetails = ({ title, file, category }: PropsType) => {
       {/* TODO: use aspect-ratio to center the handle */}
       {/* // TODO: work on this to have a better display  */}
       <div
-        className={`col-span-full h-[600px] ${tab === "code" ? "overflow-hidden" : ""}`}
+        className={`col-span-full h-[600px] ${tab === "code" ? "overflow-x-hidden" : ""}`}
       >
         {tab === "preview" ? (
           <article className="w-full h-full">
@@ -57,7 +60,7 @@ const ComponentDetails = ({ title, file, category }: PropsType) => {
             )}
           </article>
         ) : (
-          <div className="p-8 overflow-auto h-full g-gray-800 ext-gray-100 rounded-lg">
+          <div className="overflow-hidden h-full g-gray-800 ext-gray-100 rounded-lg">
             {code ? <TabCode code={code} /> : <p>Loading...</p>}
           </div>
         )}
@@ -90,9 +93,13 @@ const TabPreview = ({ code }: { code: string }) => {
 };
 
 const TabCode = ({ code }: { code: string }) => {
+  // TODO: Do we need to change the language?
+  const [prismClass, setPrismClass] = useState('language-html');
+
   return (
-    <pre>
-      <code>{code}</code>
+    // NOTE: prismJS applies some margin and I don't want that
+    <pre className="w-full h-full !m-0">
+      <code className={prismClass}>{code}</code>
     </pre>
   );
 };

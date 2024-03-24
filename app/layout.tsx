@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import "@/styles/prism-themes/dracula.css";
 
 import TheNavbar from "@/components/TheNavbar";
 import TheFooter from "@/components/TheFooter";
