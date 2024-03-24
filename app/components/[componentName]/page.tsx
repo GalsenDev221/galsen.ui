@@ -1,7 +1,6 @@
 // "use client";
 
 import ErrorMessage from "@/components/Error/ErrorMessage";
-import UIComponentPreview from "@/components/UIComponentPreview";
 import ComponentDetails from "@/components/galsenUiComponents/ComponentDetails";
 
 import { promises as fs } from "fs";
@@ -38,7 +37,7 @@ export default async function Page({ params }: PageProps) {
   // Now we can read the content inside the component description file
   const componentDescription = await fs.readFile(
     process.cwd() +
-      `/public/ui/${params.componentName}/${componentDescriptionFile}`,
+    `/public/ui/${params.componentName}/${componentDescriptionFile}`,
     "utf8"
   );
 
@@ -50,36 +49,19 @@ export default async function Page({ params }: PageProps) {
         </h1>
         <p className="text-neutral-500">{componentDescription}</p>
 
-        {/* TODO: expose the component name as a prop */}
-        {/* {htmlFiles.length ? (
-          htmlFiles.map((file: string) => (
-            <UIComponentPreview
-              key={file}
-              category={params.componentName}
-              file={file}
-            />
-          ))
-        ) : (
-          <p>Empty</p>
-        )} */}
-
-        {htmlFiles.length ? (
-          htmlFiles.map((file: string) => (
-            <ComponentDetails
-              title="Bouton Simple"
-              key={file}
-              category={params.componentName}
-              file={file}
-            />
-          ))
-        ) : (
-          <p>Empty</p>
-        )}
-
-        {/* TODO: remove the `hidden` class */}
-        <div className="mt-16 space-y-12 hidden">
-          {/* <ComponentDetails title="Bouton Simple" />
-          <ComponentDetails title="Bouton Pas Simple" /> */}
+        <div className="mt-16 space-y-12">
+          {htmlFiles.length ? (
+            htmlFiles.map((file: string) => (
+              <ComponentDetails
+                title="Bouton Simple"
+                key={file}
+                category={params.componentName}
+                file={file}
+              />
+            ))
+          ) : (
+            <p>Empty</p>
+          )}
         </div>
       </section>
     </main>
