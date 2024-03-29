@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels";
 import { componentPreviewHtml } from "@/utils/transformers";
 import Prism from 'prismjs';
+import { removeExtension } from "@/utils";
 require('prismjs/components/prism-cshtml');
 
 type PropsType = {
@@ -28,7 +29,7 @@ const ComponentDetails = ({ title, file, category }: PropsType) => {
 
   return (
     <article className="w-full grid grid-cols-[auto_auto] gap-y-4 items-center">
-      <h2 className="text-neutral-700">{title}</h2>
+      <h2 className="text-neutral-700">{removeExtension(".html", file).toUpperCase()}</h2>
       <div className="p-1 bg-neutral-100 rounded w-fit justify-self-end">
         <button
           onClick={() => setTab("preview")}
