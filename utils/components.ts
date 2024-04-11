@@ -43,9 +43,9 @@ export const componentsFakeData: IComponent[] = [
   },
   {
     image: "/images/buttons.png",
-    name: "Butons",
+    name: "Buttons",
     count: 2,
-    alt: "Butons components",
-    link: "/components/boutons",
+    alt: "buttons components",
+    link: "/components/buttons",
   },
 ];
