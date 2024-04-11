@@ -14,7 +14,7 @@ type PropsType = {
 };
 
 const ComponentDetails = ({ title, file, category }: PropsType) => {
-  const [tab, setTab] = useState<"preview" | "code">("preview");
+  const [tab, setTab] = useState<"preview" | "code">("code");
 
   const [code, setCode] = useState<string | undefined>("");
   useEffect(() => {
