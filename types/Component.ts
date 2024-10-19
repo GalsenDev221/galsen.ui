@@ -16,4 +16,5 @@ export interface GalsenUiComponentGroup {
   seo: Seo;
   count: number;
   components: Component[];
+  slug: string;
 }

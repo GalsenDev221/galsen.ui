@@ -21,10 +21,10 @@ async function getComponents() {
       // console.log({ galsenUiComponentSerializedContent });
       const galsenUiGroupComponentsCount = Object.values(galsenUiComponentSerializedContent.components).length
 
-      console.log({ galsenUiComponentSerializedContent, count: galsenUiGroupComponentsCount });
+      // console.log({ galsenUiComponentSerializedContent, count: galsenUiGroupComponentsCount });
 
 
-      return { ...galsenUiComponentSerializedContent, count: galsenUiGroupComponentsCount };
+      return { ...galsenUiComponentSerializedContent, count: galsenUiGroupComponentsCount, slug: file.replace("galsen-ui-", "").replace(".mdx", "") };
     })
   )
 

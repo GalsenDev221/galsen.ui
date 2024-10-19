@@ -8,30 +8,32 @@ import { removeExtension } from "@/utils";
 require("prismjs/components/prism-cshtml");
 
 type PropsType = {
-  file: string;
-  category: string;
+  file?: string;
+  category?: string;
+  code: string
 };
 
-const ComponentDetails = ({ file, category }: PropsType) => {
+// TODO: rename to component preview
+const ComponentDetails = ({ file, category, code }: PropsType) => {
   const [tab, setTab] = useState<"preview" | "code">("code");
 
-  const [code, setCode] = useState<string | undefined>("");
+  // const [code, setCode] = useState<string | undefined>("");
   useEffect(() => {
     Prism.highlightAll();
-    fetchUiComponent();
+    // fetchUiComponent();
   });
 
   async function fetchUiComponent() {
     // TODO: before fetching the code, we should first check if we want to display `CSS` or `Tailwind` styles
-    const res = await fetch(`/ui/${category}/${file}`);
-    setCode(await res.text());
+    // const res = await fetch(`/ui/${category}/${file}`);
+    // setCode(await res.text());
   }
 
   return (
     <article className="w-full grid grid-cols-[auto_auto] gap-y-4 items-center">
-      <h2 className="text-neutral-700">
+      {/* <h2 className="text-neutral-700">
         {removeExtension(".html", file).toUpperCase()}
-      </h2>
+      </h2> */}
       <div className="p-1 bg-neutral-100 rounded w-fit justify-self-end">
         <button
           onClick={() => setTab("preview")}

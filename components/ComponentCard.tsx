@@ -5,9 +5,8 @@ export default function ComponentCard({ componentData }: { componentData: Galsen
   const componentCountPluralize = componentData.count > 1 ? 'Composants' : 'Composant'
   const componentCount = `${componentData.count} ${componentCountPluralize}`
 
-
   return (
-    <Link href={`/components/`}>
+    <Link href={`/components/${componentData.slug}`}>
       <div className="group relative block h-full bg-white">
         <div className="h-full rounded-md border-2 border-gray-900 bg-white">
           <div className="p-4 sm:p-6">
