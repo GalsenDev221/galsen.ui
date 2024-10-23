@@ -37,27 +37,23 @@ async function getComponents() {
 export default async function Home() {
   const components = await getComponents()
 
-// console.log({ components });
-
-
   return (
     <main className="">
       <section className="px-4 py-16 space-y-6 text-center">
         <h1 className="mx-auto max-w-2xl text-4xl font-extrabold leading-none sm:text-5xl">
-          Découvrez des composants UI époustouflants
+          Découvrez des composants UI époustouflants.
         </h1>
         <p className="mx-auto max-w-xl text-neutral-500">
           Explorez notre vaste bibliothèque de composants UI magnifiquement
           conçus pour vous.
         </p>
-        <button className="bg-black text-white px-6 py-3 leading-none rounded">
+        <button className="bg-gray-900 text-lg font-medium text-gray-50 px-8 py-4 leading-none rounded-md">
           Explorer
         </button>
       </section>
       <div className="sm:max-w-7xl sm:mx-auto mt-10 px-4">
         <ComponentsGrid componentItems={components} />
       </div>
-      {/* <ComponentsList /> */}
     </main>
   );
 }
