@@ -4,58 +4,40 @@ import { useEffect, useState } from "react";
 import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels";
 import { componentPreviewHtml } from "@/utils/transformers";
 import Prism from "prismjs";
-import { removeExtension } from "@/utils";
 require("prismjs/components/prism-cshtml");
 
-type PropsType = {
-  file?: string;
-  category?: string;
-  code: string
-};
-
-// TODO: rename to component preview
-const ComponentDetails = ({ file, category, code }: PropsType) => {
+const ComponentDetails = ({ code }: { code: string }) => {
   const [tab, setTab] = useState<"preview" | "code">("code");
 
-  // const [code, setCode] = useState<string | undefined>("");
   useEffect(() => {
     Prism.highlightAll();
-    // fetchUiComponent();
   });
-
-  async function fetchUiComponent() {
-    // TODO: before fetching the code, we should first check if we want to display `CSS` or `Tailwind` styles
-    // const res = await fetch(`/ui/${category}/${file}`);
-    // setCode(await res.text());
-  }
 
   return (
     <article className="w-full grid grid-cols-[auto_auto] gap-y-4 items-center">
-      {/* <h2 className="text-neutral-700">
-        {removeExtension(".html", file).toUpperCase()}
-      </h2> */}
+      <h2 className="text-neutral-700">
+        title here
+      </h2>
       <div className="p-1 bg-neutral-100 rounded w-fit justify-self-end">
         <button
           onClick={() => setTab("preview")}
           type="button"
-          className={`py-2 px-3 rounded ${
-            tab === "preview" ? "bg-neutral-200" : "bg-transparent"
-          }`}
+          className={`py-2 px-3 rounded ${tab === "preview" ? "bg-neutral-200" : "bg-transparent"
+            }`}
         >
           Aperçu
         </button>
         <button
           onClick={() => setTab("code")}
           type="button"
-          className={`py-2 px-3 rounded ${
-            tab === "code" ? "bg-neutral-200" : "bg-transparent"
-          }`}
+          className={`py-2 px-3 rounded ${tab === "code" ? "bg-neutral-200" : "bg-transparent"
+            }`}
         >
           Code
         </button>
       </div>
 
-      {tab === "code" ? <SelectStyle /> : null}
+      {/* {tab === "code" ? <SelectStyle /> : null} */}
 
       <div
         className={`col-span-full h-[600px] ${tab === "code" ? "overflow-x-hidden" : ""}`}
@@ -74,6 +56,8 @@ const ComponentDetails = ({ file, category, code }: PropsType) => {
   );
 };
 
+
+
 const TabPreview = ({ code }: { code: string }) => {
   return (
     <PanelGroup
@@ -82,10 +66,7 @@ const TabPreview = ({ code }: { code: string }) => {
     >
       <Panel defaultSize={100} minSize={35}>
         <div className="pr-3 pl-5 py-10 w-full h-full flex items-center justify-center bg-gray-100 rounded-lg">
-          <iframe
-            className="w-full h-full flex items-center justify-center"
-            srcDoc={componentPreviewHtml(code)}
-          ></iframe>
+          <iframe className="w-full h-full flex items-center justify-center" srcDoc={componentPreviewHtml(code)}></iframe>
         </div>
       </Panel>
       <PanelResizeHandle className="w-2 h-16 rounded-full bg-gray-300 translate-x-4 translate-y-[230px] hidden md:block" />

@@ -1,28 +1,23 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 import ComponentDetails from './ComponentDetails'
-import { componentPreviewHtml } from '@/utils/transformers'
 
 const PostPreview = ({ file, componentSlug }: { file: string, componentSlug: string }) => {
-  const [htmlCode, setHtmlCode] = useState<string>("")
+  const [code, setCode] = useState<string>("")
 
   useEffect(() => {
-    fetchHtml()
+    fetchCode()
   })
 
-  async function fetchHtml() {
-
-    const componentUrl = `/components/${componentSlug}/${file}`
-
-    const fetchResponse = await fetch(componentUrl)
+  async function fetchCode() {
+    const fetchResponse = await fetch(`/components/${componentSlug}/${file}`)
     const textResponse = await fetchResponse.text()
-    const transformedHtml = componentPreviewHtml(textResponse)
 
-    setHtmlCode(transformedHtml)
+    setCode(textResponse)
   }
   return (
     <div>
-      <ComponentDetails code={htmlCode} />
+      <ComponentDetails code={code} />
     </div>
   )
 }

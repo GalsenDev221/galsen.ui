@@ -2,7 +2,7 @@
 import { promises as fs } from "fs";
 import { serialize } from 'next-mdx-remote/serialize'
 import RemoteMdxWrapper from "@/components/Mdx/RemoteMdxWrapper";
-import RenderHTMLFiles from './../../../components/galsenUiComponents/RenderHTMLFiles';
+import RenderHTMLFiles from '@/components/galsenUiComponents/RenderHTMLFiles';
 
 
 type PageProps = {
