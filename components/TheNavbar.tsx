@@ -7,7 +7,9 @@ export default function TheNavbar() {
       <nav className="px-4 flex items-center justify-between sm:max-w-7xl sm:mx-auto">
         {/* TODO: add logo */}
         <span>LOGO</span>
-        <ul className="inline-flex items-center gap-3">
+
+        {/* TODO: do we need this for now? */}
+        <ul className="hidden inline-flex items-center gap-3">
           {/* TODO: add correct links */}
           <li>
             <Link href={ACCUEIL_PATH}>Accueil</Link>
