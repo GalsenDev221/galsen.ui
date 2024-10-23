@@ -56,8 +56,6 @@ const ComponentDetails = ({ code }: { code: string }) => {
   );
 };
 
-
-
 const TabPreview = ({ code }: { code: string }) => {
   return (
     <PanelGroup
