@@ -19,18 +19,18 @@ const ComponentDetails = ({ code, title }: { title: string; code: string }) => {
         {title}
       </h2>
 
-      <div className="p-1.5 bg-neutral-100 text-neutral-700 font-medium rounded w-fit">
+      <div className="p-1.5 bg-blue-50 text-blue-900 font-medium rounded w-fit">
         <button
           onClick={() => setTab("preview")}
           type="button"
-          className={`py-2 px-3 rounded ${tab === "preview" ? "bg-black text-white" : ""}`}
+          className={`py-2 px-3 rounded ${tab === "preview" ? "bg-blue-500 text-white" : ""}`}
         >
           Aperçu
         </button>
         <button
           onClick={() => setTab("code")}
           type="button"
-          className={`py-2 px-3 rounded ${tab === "code" ? "bg-black text-white" : ""}`}
+          className={`py-2 px-3 rounded ${tab === "code" ? "bg-blue-500 text-white" : ""}`}
         >
           Code
         </button>

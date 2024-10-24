@@ -47,9 +47,11 @@ export default async function Home() {
           Explorez notre vaste bibliothèque de composants UI magnifiquement
           conçus pour vous.
         </p>
-        <button className="bg-gray-900 text-lg font-medium text-gray-50 px-8 py-4 leading-none rounded-md">
-          Explorer
-        </button>
+
+        {/* TODO: do we need this? */}
+        {/* <button className="bg-gray-900 text-lg font-medium text-gray-50 px-8 py-4 leading-none rounded-md"> */}
+        {/*   Explorer */}
+        {/* </button> */}
       </section>
       <div className="sm:max-w-7xl sm:mx-auto mt-10 px-4">
         <ComponentsGrid componentItems={components} />
