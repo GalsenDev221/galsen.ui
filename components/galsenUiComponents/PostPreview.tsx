@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import ComponentDetails from './ComponentDetails'
 
-const PostPreview = ({ file, componentSlug }: { file: string, componentSlug: string }) => {
+const PostPreview = ({ file, componentSlug, title }: { title: string; file: string, componentSlug: string }) => {
   const [code, setCode] = useState<string>("")
 
   useEffect(() => {
@@ -16,9 +16,7 @@ const PostPreview = ({ file, componentSlug }: { file: string, componentSlug: str
     setCode(textResponse)
   }
   return (
-    <div>
-      <ComponentDetails code={code} />
-    </div>
+    <ComponentDetails code={code} title={title} />
   )
 }
 

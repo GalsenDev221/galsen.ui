@@ -26,12 +26,19 @@ export default async function Page({ params }: PageProps) {
     "utf8"
   )
 
+  const mdxScope = {
+    files: componentHTMLFiles,
+    componentSlug: params.componentName,
+    titles: mdxSource.frontmatter.components
+  }
+
   return (
     <main className="">
       <section className="px-4 py-16 sm:max-w-7xl sm:mx-auto">
+
         <RemoteMdxWrapper
           mdxSource={mdxSource}
-          mdxScope={{ files: componentHTMLFiles, componentSlug: params.componentName }}
+          mdxScope={mdxScope}
           mdxComponents={{ RenderHTMLFiles }} />
       </section>
     </main>
