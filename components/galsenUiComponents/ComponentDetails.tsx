@@ -21,14 +21,14 @@ const ComponentDetails = ({ code, title }: { title: string; code: string }) => {
 
       <div className="p-1.5 bg-blue-50 text-blue-900 font-medium rounded w-fit">
         <button
-          onClick={() => setTab("preview")}
+          onClick={() => setTab("code")}
           type="button"
           className={`py-2 px-3 rounded ${tab === "preview" ? "bg-blue-500 text-white" : ""}`}
         >
           Aperçu
         </button>
         <button
-          onClick={() => setTab("code")}
+          onClick={() => setTab("preview")}
           type="button"
           className={`py-2 px-3 rounded ${tab === "code" ? "bg-blue-500 text-white" : ""}`}
         >
@@ -37,7 +37,9 @@ const ComponentDetails = ({ code, title }: { title: string; code: string }) => {
       </div>
 
       <div
-        className={`col-span-full h-[600px] ${tab === "code" ? "overflow-x-hidden" : ""}`}
+        className={`col-span-full h-[600px] ${
+          tab === "preview" ? "overflow-x-hidden" : ""
+        }`}
       >
         {tab === "preview" ? (
           <article className="w-full h-full">
@@ -47,6 +49,10 @@ const ComponentDetails = ({ code, title }: { title: string; code: string }) => {
           <div className="overflow-hidden h-full bg-red-500 rounded-lg">
             {code ? <TabCode code={code} /> : <p>Loading...</p>}
           </div>
+        ) : (
+          <article className="w-full h-full">
+            {code ? <TabPreview code={code} /> : <p>Loading...</p>}
+          </article>
         )}
       </div>
     </article>
