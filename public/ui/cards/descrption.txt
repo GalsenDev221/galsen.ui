@@ -1,0 +1,1 @@
+Les cards sont des composants très utilisés au niveau des pages webs.
