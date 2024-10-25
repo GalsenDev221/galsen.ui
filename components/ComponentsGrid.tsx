@@ -3,9 +3,9 @@ import ComponentCard from "./ComponentCard";
 
 export default function ComponentsGrid({ componentItems }: { componentItems: GalsenUiComponentGroup[] }) {
   return (
-    <ul className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 w-full">
+    <ul className="md:col-start-4 md:col-end-6 divide-y-2 divide-blue-300 divide-dashed rounded-lg overflow-hidden">
       {componentItems.map((componentData) => (
-        <li key={componentData.title}>
+        <li className="bg-blue-100" key={componentData.title}>
           <ComponentCard componentData={componentData} />
         </li>
       ))}

@@ -40,7 +40,7 @@ export default async function Home() {
   return (
     <main className="">
       <section className="px-4 py-16 space-y-6 text-center">
-        <h1 className="mx-auto max-w-2xl text-4xl font-extrabold leading-none sm:text-5xl">
+        <h1 className="mx-auto text-blue-700 max-w-2xl text-4xl font-extrabold leading-none sm:text-5xl">
           Découvrez des composants UI époustouflants.
         </h1>
         <p className="mx-auto max-w-xl text-neutral-500">
@@ -48,11 +48,11 @@ export default async function Home() {
           conçus pour vous.
         </p>
 
-        {/* TODO: do we need this? */}
         {/* <button className="bg-gray-900 text-lg font-medium text-gray-50 px-8 py-4 leading-none rounded-md"> */}
         {/*   Explorer */}
         {/* </button> */}
       </section>
+
       <div className="sm:max-w-7xl sm:mx-auto mt-10 px-4">
         <ComponentsGrid componentItems={components} />
       </div>
