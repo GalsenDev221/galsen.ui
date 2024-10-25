@@ -37,9 +37,8 @@ const ComponentDetails = ({ code, title }: { title: string; code: string }) => {
       </div>
 
       <div
-        className={`col-span-full h-[600px] ${
-          tab === "preview" ? "overflow-x-hidden" : ""
-        }`}
+        className={`col-span-full h-[600px] ${tab === "preview" ? "overflow-x-hidden" : ""
+          }`}
       >
         {tab === "preview" ? (
           <article className="w-full h-full">
@@ -49,10 +48,6 @@ const ComponentDetails = ({ code, title }: { title: string; code: string }) => {
           <div className="overflow-hidden h-full bg-red-500 rounded-lg">
             {code ? <TabCode code={code} /> : <p>Loading...</p>}
           </div>
-        ) : (
-          <article className="w-full h-full">
-            {code ? <TabPreview code={code} /> : <p>Loading...</p>}
-          </article>
         )}
       </div>
     </article>
