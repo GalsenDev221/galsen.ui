@@ -1,0 +1,29 @@
+---
+title: "Back to Home Button"
+emoji: "🏠"
+description: "Un bouton qui permet de retourner à la page d'accueil."
+components:
+  1:
+    title: "Back to Home Button"
+---
+
+# Back to Home Button
+
+<RenderHTMLFiles files={files} componentSlug={componentSlug} />
+
+Ce composant est un bouton qui permet à l'utilisateur de revenir à la page d'accueil de l'application. Il utilise le composant `Link` de Next.js pour naviguer sans recharger la page.
+
+## Exemple de code
+
+```javascript
+import Link from 'next/link'; // Importer Link de Next.js
+
+export default function BackToHomeButton() {
+  return (
+    <Link href="/" passHref>
+      <button className="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600">
+        Back to Home
+      </button>
+    </Link>
+  );
+}

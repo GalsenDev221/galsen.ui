@@ -4,7 +4,21 @@ Merci de votre intérêt pour contribuer à **GalsenUI** !
 
 Voici les étapes à suivre pour ajouter des composants :
 
-## Étape 1 : Créer un fichier `.mdx`
+## Étape 1: Comment faire pour contribuer
+
+1. **[Fork le projet](https://github.com/GalsenDev221/galsen.ui.git)**.
+
+2. **Clonez votre fork**.
+
+3. **Créez une branche pour votre fonctionnalité**.
+
+4. **Commitez vos changements et poussez vos modifications**.
+
+5. **Créez une pull request vers la branche dev**.
+
+6. **Attendez que la pull request soit mergé**.
+
+## Étape 2: Créer un fichier `.mdx`
 
 1. Accédez au dossier `src/components`.
 2. Créez un fichier nommé `galsen-ui-nom-du-fichier.mdx` en respectant le format suivant :
@@ -30,7 +44,7 @@ Voici les étapes à suivre pour ajouter des composants :
    - **emoji** : Un emoji représentatif du composant.
    - **components** : Une liste des variantes du composant avec leur titre respectif.
 
-## Étape 2 : Créer un dossier pour les variantes
+## Étape 3 : Créer un dossier pour les variantes
 
 1. Accédez au dossier `public/components`.
 2. Créez un dossier avec le même nom que le fichier `.mdx` créé précédemment dans `src/components`.
