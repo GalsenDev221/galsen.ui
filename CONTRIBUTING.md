@@ -36,8 +36,7 @@ Voici les étapes à suivre pour ajouter des composants :
    ---
 
    # Nom Components 
-
-   <RenderHTMLFiles files={files} componentSlug={componentSlug} />
+   <RenderHTMLFiles components={components} files={files} componentSlug={componentSlug} />
    ```
 
    - **title** : Le titre du composant.
