@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels";
 import { componentPreviewHtml } from "@/utils/transformers";
 import Prism from "prismjs";
-import Link from "next/link";
 require("prismjs/components/prism-cshtml");
 
 const ComponentDetails = ({ code, title }: { title: string; code: string }) => {
@@ -19,13 +18,8 @@ const ComponentDetails = ({ code, title }: { title: string; code: string }) => {
       <h2 className="text-neutral-700 w-[500px] truncate">
         {title}
       </h2>
-     
+
       <div className="p-1.5 bg-blue-50 text-blue-900 font-medium rounded w-fit">
-      <Link href="/" passHref>
-          <button className="py-2 mx-3 px-4 bg-blue-500 text-white rounded hover:bg-blue-600">
-            Back to Home
-          </button>
-        </Link>
         <button
           onClick={() => setTab("preview")}
           type="button"
