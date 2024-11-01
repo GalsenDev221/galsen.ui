@@ -31,7 +31,7 @@ L’objectif est de fournir aux développeurs une base solide pour créer des ap
 
 ![Made-In-Senegal](./public/svgs/madeinsenegal.svg)
 
-🚧 Si vous souhaitez contribuer à ce projet, veuillez lire **[CONTRIBUTING.md](../CONTRIBUTING.md)** d'abord !
+🚧 Si vous souhaitez contribuer à ce projet, veuillez lire **[CONTRIBUTING.md](./CONTRIBUTING.md)** d'abord !
 
 ---
 
