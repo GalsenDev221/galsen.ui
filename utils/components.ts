@@ -14,18 +14,18 @@ export const componentsFakeData: IComponent[] = [
     link: "/components/tables",
   },
   {
-    image: "/images/cards.png",
-    name: "Cards",
-    count: 4,
-    alt: "Cards components",
-    link: "/components/cards",
-  },
-  {
     image: "/images/navbars.png",
     name: "Navbars",
     count: 3,
     alt: "Navbars components",
     link: "/components/navbars",
+  },
+  {
+    image: "/images/cards.png",
+    name: "Cards",
+    count: 3,
+    alt: "Cards components",
+    link: "/components/cards",
   },
   {
     image: "/images/footers.png",
