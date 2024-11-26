@@ -1,25 +1,26 @@
 # Galsen UI
 
-**Galsen UI** est une bibliothèque de composants **Tailwind** et **CSS pur** réutilisables, conçue pour la communauté des développeurs du Sénégal. Ce projet **made in Senegal** a pour but de partager des éléments UI modernes et flexibles pour aider les développeurs à accélérer la création de projets.  
-Ce projet vient renforcer les projets et activités de la communauté **Galsen DEV**.
+Read this in [French](docs/README-fr.md) ![fr](docs/assets/fr.png)
 
-## Sommaire
+**Galsen UI** is a library of reusable **Tailwind** and **pure CSS** (coming soon) components designed for the developer community in Senegal. This **made in Senegal** project aims to share modern and flexible UI elements to help developers accelerate project creation.
+
+## Table of Contents
 
 - [Galsen UI](#galsen-ui)
-  - [Sommaire](#sommaire)
-  - [Aperçu du projet](#aperçu-du-projet)
-  - [Prérequis](#prérequis)
+  - [Table of Contents](#table-of-contents)
+  - [Project Overview](#project-overview)
+  - [Prerequisites](#prerequisites)
   - [Installation](#installation)
-  - [Lancer le projet](#lancer-le-projet)
-  - [Scripts utiles](#scripts-utiles)
-  - [Contribuer](#contribuer)
-  - [Licence](#licence)
+  - [Run the Project](#run-the-project)
+  - [Useful Scripts](#useful-scripts)
+  - [Contribute](#contribute)
+  - [License](#license)
 
-## Aperçu du projet
+## Project Overview
 
-**Galsen UI** propose une collection de composants UI prêts à l'emploi, faciles à intégrer dans vos projets. Conçus avec **Tailwind CSS** et **CSS** pur, ces composants sont entièrement personnalisables, réactifs, et adaptés aux besoins des développeurs modernes.
+**Galsen UI** offers a collection of ready-to-use UI components that are easy to integrate into your projects. Built with **Tailwind CSS** and **pure CSS**, these components are fully customizable, responsive, and tailored to the needs of modern developers.
 
-L’objectif est de fournir aux développeurs une base solide pour créer des applications élégantes et accessibles, en s'appuyant sur les meilleures pratiques de développement front-end.
+The goal is to provide developers with a solid foundation for building elegant and accessible applications, leveraging best practices in front-end development.
 
 ![NextJS](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
@@ -33,63 +34,62 @@ L’objectif est de fournir aux développeurs une base solide pour créer des ap
 
 ---
 
-## Prérequis
+## Prerequisites
 
-Avant de commencer, assurez-vous d'avoir les éléments suivants installés :
+Before starting, make sure you have the following installed:
 
-- Node.js (Version 20.x ou supérieure recommandée) : [Télécharger Node.js](https://nodejs.org)
+- Node.js (Version 20.x or higher recommended): [Download Node.js](https://nodejs.org)
 
 ## Installation
 
-1. **Clonez le dépôt**
+1. **Clone the repository**
 
    ```bash
    git clone https://github.com/GalsenDev221/galsen.ui.git
    ```
 
-2. **Accédez au dossier du projet**
+2. **Navigate to the project folder**
 
    ```bash
    cd galsen.ui
    ```
 
-3. **Installez les dépendances**
+3. **Install dependencies**
 
    ```bash
    npm install
    ```
 
-## Lancer le projet
+## Run the Project
 
-Pour démarrer le projet en mode développement, utilisez la commande suivante :
+To start the project in development mode, use the following command:
 
 ```bash
 npm run dev
 ```
 
-Une fois le projet lancé, ouvrez votre navigateur et accédez à [http://localhost:3000](http://localhost:3000) pour voir l’application en action.
+Once the project is running, open your browser and go to [http://localhost:3000](http://localhost:3000) to see the application in action.
 
-## Scripts utiles
+## Useful Scripts
 
-- **dev** : Lance le projet en mode développement.
-- **build** : Compile le projet pour la production.
-- **start** : Démarre l'application en mode production.
+- **dev**: Starts the project in development mode.
+- **build**: Compiles the project for production.
+- **start**: Runs the application in production mode.
 
-## Contribuer
+## Contribute
 
-Les contributions sont les bienvenues !
+Contributions are welcome!
 
-🚧 Si vous souhaitez contribuer sur Galsen UI, veuillez prendre le temps de bien lire le fichier **[CONTRIBUTING](CONTRIBUTING.md)** d'abord !
+🚧 If you want to contribute to Galsen UI, please take the time to read the **[CONTRIBUTING](CONTRIBUTING.md)** file first!
 
-Merci à tout ceux qui ont contribués ❤️
+Thanks to all contributors ❤️
 
 <a href="https://github.com/GalsenDev221/galsen.ui/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=GalsenDev221/galsen.ui" />
 </a>
 
-## Licence
+## License
 
-Ce projet est sous **[licence MIT](LICENSE.md)**. Vous êtes libre de l'utiliser et de le modifier selon vos besoins.
+This project is licensed under the **[MIT License](LICENSE.md)**.
 
-Merci d'utiliser **Galsen UI** et de soutenir la communauté Galsen DEV !  
-Pour toute question, suggestion ou amélioration, n'hésitez pas à nous contacter.
+For any questions, suggestions, or improvements, feel free to contact us on [X (Twitter)](https://x.com/galsendev) or by opening an [issue](https://github.com/GalsenDev221/galsen.ui/issues).
