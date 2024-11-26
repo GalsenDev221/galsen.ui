@@ -9,9 +9,9 @@ import TheFooter from "@/components/TheFooter";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Galsen UI",
-  description: "Découvrez des composants UI époustouflants",
-  icons: "/favicon.ico"
+  title: "Galsen UI - Une bibliothèque de composants réutilisables.",
+  description: "Une bibliothèque de composants réutilisables.",
+  icons: "/favicon.ico",
 };
 
 export default function RootLayout({
@@ -20,14 +20,52 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="fr">
-      <body className={inter.className}>
-        <div className="min-h-screen grid grid-rows-[auto_1fr_auto]">
-          <TheNavbar />
-          {children}
-          <TheFooter />
-        </div>
-      </body>
-    </html>
+    <>
+      <html lang="fr">
+        <head>
+          {/* OG Meta Tags */}
+          <meta property="og:url" content="https://ui.galsen.dev" />
+          <meta property="og:type" content="website" />
+          <meta
+            property="og:image"
+            content="https://res.cloudinary.com/degyjrpjj/image/upload/v1732653153/galsenui/share/og.image_mrp3ew.png"
+          />
+          <meta property="og:title" content="Galsen UI" />
+          <meta
+            property="og:description"
+            content="Une bibliothèque de composants réutilisables."
+          />
+          <meta property="og:image:width" content="1200" />
+          <meta property="og:image:height" content="630" />
+
+          {/* Twitter Meta Tags */}
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta property="twitter:domain" content="ui.galsen.dev" />
+          <meta property="twitter:url" content="https://ui.galsen.dev" />
+          <meta name="twitter:title" content="Galsen UI" />
+          <meta
+            name="twitter:description"
+            content="Une bibliothèque de composants réutilisables."
+          />
+          <meta
+            name="twitter:image"
+            content="https://res.cloudinary.com/degyjrpjj/image/upload/v1732653153/galsenui/share/og.image_mrp3ew.png"
+          />
+          {/* Beam Analytics */}
+          <script
+            src="https://beamanalytics.b-cdn.net/beam.min.js"
+            data-token={process.env.BEAM_DATA_TOKEN}
+            async
+          />
+        </head>
+        <body className={inter.className}>
+          <div className="min-h-screen flex flex-col">
+            <TheNavbar />
+            <main className="flex-grow">{children}</main>
+            <TheFooter />
+          </div>
+        </body>
+      </html>
+    </>
   );
 }
