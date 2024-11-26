@@ -6,7 +6,7 @@ export default function TheFooter() {
         <ul className="inline-flex items-center gap-4">
           <li className="text-sm">
             <a
-              href="https://x.com/galsendev"
+              href="https://x.com/galsendev221"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-blue-400"
