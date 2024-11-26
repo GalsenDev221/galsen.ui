@@ -1,6 +1,6 @@
 # Galsen UI
 
-**Galsen UI** est une bibliothèque de composants **Tailwind CSS** et **CSS pur** réutilisables, conçue pour la communauté des développeurs du Sénégal. Ce projet **made in Senegal** a pour but de partager des éléments UI modernes et flexibles pour aider les développeurs à accélérer la création de projets.  
+**Galsen UI** est une bibliothèque de composants **Tailwind** et **CSS pur** réutilisables, conçue pour la communauté des développeurs du Sénégal. Ce projet **made in Senegal** a pour but de partager des éléments UI modernes et flexibles pour aider les développeurs à accélérer la création de projets.  
 Ce projet vient renforcer les projets et activités de la communauté **Galsen DEV**.
 
 ## Sommaire
@@ -29,9 +29,7 @@ L’objectif est de fournir aux développeurs une base solide pour créer des ap
 
 ---
 
-![Made-In-Senegal](./public/svgs/madeinsenegal.svg)
-
-🚧 Si vous souhaitez contribuer à ce projet, veuillez lire **[CONTRIBUTING.md](../CONTRIBUTING.md)** d'abord !
+![Made-In-Senegal](https://github.com/GalsenDev221/made.in.senegal/blob/master/assets/badge.svg)
 
 ---
 
@@ -79,19 +77,19 @@ Une fois le projet lancé, ouvrez votre navigateur et accédez à [http://localh
 
 ## Contribuer
 
-Les contributions sont les bienvenues ! Pour contribuer à **Galsen UI**, suivez les étapes ci-dessous :
+Les contributions sont les bienvenues !
 
-1. **Fork** le dépôt.
-2. **Créez une branche** pour votre fonctionnalité (`git checkout -b fonctionnalité/ma-fonctionnalité`).
-3. **Commitez vos changements** (`git commit -m 'Ajout d'une nouvelle fonctionnalité'`).
-4. **Pushez** la branche (`git push origin fonctionnalité/ma-fonctionnalité`).
-5. Ouvrez une **pull request** pour examiner et intégrer vos modifications.
+🚧 Si vous souhaitez contribuer sur Galsen UI, veuillez prendre le temps de bien lire le fichier **[CONTRIBUTING](CONTRIBUTING.md)** d'abord !
 
-Nous vous invitons également à consulter notre [Code de Conduite](CODE_OF_CONDUCT.md) pour un environnement de collaboration respectueux.
+Merci à tout ceux qui ont contribués ❤️
+
+<a href="https://github.com/GalsenDev221/galsen.ui/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=GalsenDev221/galsen.ui" />
+</a>
 
 ## Licence
 
-Ce projet est sous licence [MIT](LICENSE.md). Vous êtes libre de l'utiliser et de le modifier selon vos besoins.
+Ce projet est sous **[licence MIT](LICENSE.md)**. Vous êtes libre de l'utiliser et de le modifier selon vos besoins.
 
 Merci d'utiliser **Galsen UI** et de soutenir la communauté Galsen DEV !  
 Pour toute question, suggestion ou amélioration, n'hésitez pas à nous contacter.
