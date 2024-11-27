@@ -1,27 +1,27 @@
-# Guide de Contribution
+# Contribution Guide
 
-Merci de votre intérêt pour contribuer à **Galsen UI** !
+Thank you for your interest in contributing to **Galsen UI**!
 
-Voici les étapes à suivre pour ajouter des composants :
+Here are the steps to follow to add components:
 
-## Étape 1 : Comment faire pour contribuer
+## Step 1: How to Contribute
 
-1. **[Fork le projet](https://github.com/GalsenDev221/galsen.ui)**.
+1. **[Fork the project](https://github.com/GalsenDev221/galsen.ui)**.
 
-2. **Clonez votre fork**.
+2. **Clone your fork**.
 
-3. **Créez une branche pour votre fonctionnalité**.
+3. **Create a branch for your feature**.
 
-4. **Commitez vos changements et poussez vos modifications**.
+4. **Commit your changes and push your modifications**.
 
-5. **Créez une pull request vers la branche dev**.
+5. **Create a pull request to the `dev` branch**.
 
-6. **Attendez que la pull request soit mergé**.
+6. **Wait for your pull request to be merged**.
 
-## Étape 2 : Créer un fichier `.mdx`
+## Step 2: Create a `.mdx` File
 
-1. Accédez au dossier `src/components`.
-2. Créez un fichier nommé `galsen-ui-nom-du-fichier.mdx` en respectant le format suivant :
+1. Navigate to the `src/components` folder.
+2. Create a file named `galsen-ui-component-name.mdx` following the format below:
 
    ```mdx
    ---
@@ -35,7 +35,7 @@ Voici les étapes à suivre pour ajouter des composants :
        title:  
    ---
 
-   # Nom Components
+   # Component Name
 
    <RenderHTMLFiles
      components={components}
@@ -44,12 +44,12 @@ Voici les étapes à suivre pour ajouter des composants :
    />
    ```
 
-   - **title** : Le titre du composant.
-   - **emoji** : Un emoji représentatif du composant.
-   - **components** : Une liste des variantes du composant avec leur titre respectif.
+   - **title**: The title of the component.
+   - **emoji**: An emoji representing the component.
+   - **components**: A list of component variations with their respective titles.
 
-## Étape 3 : Créer un dossier pour les variantes
+## Step 3: Create a Folder for Variations
 
-1. Accédez au dossier `public/components`.
-2. Créez un dossier avec le même nom que le fichier `.mdx` créé précédemment dans `src/components`.
-3. Dans ce dossier, créez des fichiers pour chaque variante du composant. Les noms de fichiers doivent être des nombres, en commençant par **1** (ex. `1.html`, `2.html`).
+1. Navigate to the `public/components` folder.
+2. Create a folder with the same name as the `.mdx` file you created earlier in `src/components`.
+3. Inside this folder, create files for each variation of the component. File names should be numbers starting from **1** (e.g., `1.html`, `2.html`).
