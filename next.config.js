@@ -6,7 +6,7 @@ const nextConfig = {
     return [
       {
         source: "/components",
-        destination: "/public/components/buttons",
+        destination: "/components/buttons",
         permanent: true,
       },
     ];
