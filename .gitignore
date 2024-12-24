@@ -37,5 +37,4 @@ next-env.d.ts
 .env*.local
 
 # lock files
-package-lock.json
 pnpm-lock.yaml
