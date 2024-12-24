@@ -14,7 +14,7 @@
     "@next/mdx": "^14.2.15",
     "@types/mdx": "^2.0.13",
     "fs": "0.0.1-security",
-    "next": "14.0.4",
+    "next": "14.2.15",
     "next-mdx-remote": "^5.0.0",
     "punycode": "^2.3.1",
     "react": "^18.2.0",
