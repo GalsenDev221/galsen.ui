@@ -3,8 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import "@/styles/prism-themes/dracula.css";
 
-import TheNavbar from "@/components/TheNavbar";
-import TheFooter from "@/components/TheFooter";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -60,9 +60,9 @@ export default function RootLayout({
         </head>
         <body className={inter.className}>
           <div className="min-h-screen flex flex-col">
-            <TheNavbar />
+            <Navbar />
             <main className="flex-grow">{children}</main>
-            <TheFooter />
+            <Footer />
           </div>
         </body>
       </html>

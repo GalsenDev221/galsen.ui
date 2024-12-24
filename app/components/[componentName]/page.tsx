@@ -4,7 +4,7 @@ import { serialize } from "next-mdx-remote/serialize";
 import RemoteMdxWrapper from "@/components/Mdx/RemoteMdxWrapper";
 import RenderHTMLFiles from "@/components/galsenUiComponents/RenderHTMLFiles";
 import H1 from "@/components/Mdx/H1";
-import ErrorMessage from "@/components/Error/ErrorMessage";
+// import ErrorMessage from "@/components/Error/ErrorMessage";
 import Link from "next/link";
 
 type PageProps = {
