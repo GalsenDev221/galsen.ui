@@ -26,7 +26,7 @@ export default async function Page({ params }: PageProps) {
   // TODO: recuperer les titres et description de chaque composant
   const componentsData = await fs.readFile(
     process.cwd() +
-      `/src/data/components/galsen-ui-${params.componentName}.mdx`,
+      `/public/data/components/galsen-ui-${params.componentName}.mdx`,
     "utf8"
   );
   const mdxSource = await serialize(componentsData, { parseFrontmatter: true });

@@ -8,7 +8,7 @@ import { GalsenUiComponentGroup } from "@/types/Component";
 async function getComponents() {
   const galsenUiComponentsPath = path.join(
     process.cwd(),
-    "/src/data/components"
+    "/public/data/components"
   );
 
   const galsenUiComponentsFiles = await fs.readdir(galsenUiComponentsPath);
