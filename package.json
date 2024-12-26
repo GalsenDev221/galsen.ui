@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postbuild": "cp -r src/data/components .next/data/components"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.0.1",
