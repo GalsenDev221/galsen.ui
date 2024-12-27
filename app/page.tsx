@@ -8,7 +8,9 @@ import { GalsenUiComponentGroup } from "@/types/Component";
 async function getComponents() {
   const galsenUiComponentsPath = path.join(
     process.cwd(),
-    "/src/data/components"
+    "public",
+    "data",
+    "components"
   );
 
   const galsenUiComponentsFiles = await fs.readdir(galsenUiComponentsPath);
@@ -17,29 +19,36 @@ async function getComponents() {
     galsenUiComponentsFiles.map(async (file) => {
       const galsenUiComponentPath = path.join(galsenUiComponentsPath, file);
 
-      const galsenUiComponentMdxContent = await fs.readFile(
-        galsenUiComponentPath,
-        "utf8"
-      );
-      const { frontmatter: galsenUiComponentSerializedContent } =
-        await serialize<string, GalsenUiComponentGroup>(
-          galsenUiComponentMdxContent,
-          { parseFrontmatter: true }
+      try {
+        const galsenUiComponentMdxContent = await fs.readFile(
+          galsenUiComponentPath,
+          "utf8"
         );
+        const { frontmatter: galsenUiComponentSerializedContent } =
+          await serialize<string, GalsenUiComponentGroup>(
+            galsenUiComponentMdxContent,
+            {
+              parseFrontmatter: true,
+            }
+          );
 
-      const galsenUiGroupComponentsCount = Object.values(
-        galsenUiComponentSerializedContent.components
-      ).length;
+        const galsenUiGroupComponentsCount = Object.values(
+          galsenUiComponentSerializedContent.components
+        ).length;
 
-      return {
-        ...galsenUiComponentSerializedContent,
-        count: galsenUiGroupComponentsCount,
-        slug: file.replace("galsen-ui-", "").replace(".mdx", ""),
-      };
+        return {
+          ...galsenUiComponentSerializedContent,
+          count: galsenUiGroupComponentsCount,
+          slug: file.replace("galsen-ui-", "").replace(".mdx", ""),
+        };
+      } catch (error) {
+        console.error(`Erreur lors de la lecture du fichier ${file}:`, error);
+        return null;
+      }
     })
   );
 
-  return components as unknown as GalsenUiComponentGroup[];
+  return components.filter(Boolean) as GalsenUiComponentGroup[];
 }
 
 export default async function Home() {
