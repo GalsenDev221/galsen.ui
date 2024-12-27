@@ -20,7 +20,7 @@ Here are the steps to follow to add components:
 
 ## Step 2: Create a `.mdx` File
 
-1. Navigate to the `src/components` folder.
+1. Navigate to the `public/data/components` folder.
 2. Create a file named `galsen-ui-component-name.mdx` following the format below:
 
    ```mdx
@@ -51,5 +51,5 @@ Here are the steps to follow to add components:
 ## Step 3: Create a Folder for Variations
 
 1. Navigate to the `public/components` folder.
-2. Create a folder with the same name as the `.mdx` file you created earlier in `src/components`.
+2. Create a folder with the same name as the `.mdx` file you created earlier in `public/data/components`.
 3. Inside this folder, create files for each variation of the component. File names should be numbers starting from **1** (e.g., `1.html`, `2.html`).
