@@ -1,33 +1,40 @@
 <div class="flex flex-wrap gap-4 p-4">
-	<!-- basic input with label -->
-	<div class="flex flex-col gap-1">
-		<label for="input" class="text-sm text-green-500">Label</label>
-		<input type="text" class="h-10 w-80 bg-white border border-gray-300 rounded px-3 py-2 outline-none ring-1 ring-green-500 border-transparent" placeholder="Placeholder" />
-		<p class="text-sm text-green-500">This is a description</p>
+	<!-- basic input with label and description and tailwind state -->
+	<div class="flex flex-col gap-1 group">
+		<label for="input" class="text-sm text-gray-500 group-has-[input:invalid]:text-red-500">Email Input Without Icon</label>
+		<input
+			type="email"
+			class="h-10 w-80 px-3 py-2 bg-white border-gray-300 flex gap-x-2 items-center border rounded focus:outline-none focus-within:ring-1 focus-within:ring-blue-500 focus-within:border-transparent disabled:bg-slate-50 disabled:text-gray-500 disabled:border-slate-200 disabled:shadow-none invalid:border-red-500 invalid:text-red-500 focus:invalid:border-red-500 focus:invalid:ring-red-500"
+			placeholder="Placeholder"
+			value="user@gals@enui.com"
+		/>
+		<p class="text-sm text-gray-500 group-has-[input:invalid]:text-red-500">Update the email to validate this input</p>
 	</div>
 
-	<!-- input with left icon and label -->
-
-	<div class="flex flex-col gap-1">
-		<label for="input" class="text-sm text-green-500">Search</label>
-		<div class="h-10 w-80 bg-white flex gap-x-2 items-center border border-gray-300 rounded px-3 py-2 ring-1 ring-green-500 border-transparent">
-			<span class="text-green-500">
+	<!-- input with left icon and label and description tailwind state -->
+	<div class="flex flex-col gap-1 group">
+		<label for="input" class="text-sm text-gray-500 group-has-[input:invalid]:text-red-500">Text Input With Left Icon</label>
+		<div
+			class="h-10 w-80 bg-white flex gap-x-2 items-center border border-gray-300 rounded px-3 py-2 focus-within:ring-1 focus-within:ring-blue-500 focus-within:border-transparent group-has-[input:disabled]:bg-slate-50 group-has-[input:disabled]:text-gray-500 group-has-[input:disabled]:border-slate-200 group-has-[input:disabled]:shadow-none group-has-[input:invalid]:border-red-500 group-has-[input:invalid]:text-red-500 focus-within:group-has-[input:invalid]:border-red-500 focus-within:group-has-[input:invalid]:ring-red-500"
+		>
+			<span class="text-gray-500 group-has-[input:invalid]:text-red-500">
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
 					<path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
 				</svg>
 			</span>
-			<input type="text" placeholder="Search" class="w-full outline-none" />
+			<input type="text" placeholder="Search" class="w-full focus:outline-none" pattern="[a-z]+" value="UPPERCASE" />
 		</div>
-		<p class="text-sm text-green-500">This is a description</p>
+		<p class="text-sm text-gray-500 group-has-[input:invalid]:text-red-500">Write a word with only lowercase letters</p>
 	</div>
 
-	<!-- input with right icon and label -->
-
-	<div class="flex flex-col gap-1">
-		<label for="input" class="text-sm text-green-500">Write your message</label>
-		<div class="h-10 w-80 bg-white flex gap-x-2 items-center border border-gray-300 rounded px-3 py-2 ring-1 ring-green-500 border-transparent">
-			<input type="text" placeholder="ex: Hello world" class="w-full outline-none" />
-			<span class="text-green-500">
+	<!-- input with right icon and label and description tailwind state -->
+	<div class="flex flex-col gap-1 group">
+		<label for="input" class="text-sm text-gray-500 group-has-[input:invalid]:text-red-500">Text Input With Right Icon</label>
+		<div
+			class="h-10 w-80 bg-white flex gap-x-2 items-center border border-gray-300 rounded px-3 py-2 focus-within:ring-1 focus-within:ring-blue-500 focus-within:border-transparent group-has-[input:disabled]:bg-slate-50 group-has-[input:disabled]:text-gray-500 group-has-[input:disabled]:border-slate-200 group-has-[input:disabled]:shadow-none group-has-[input:invalid]:border-red-500 group-has-[input:invalid]:text-red-500 focus-within:group-has-[input:invalid]:border-red-500 focus-within:group-has-[input:invalid]:ring-red-500"
+		>
+			<input type="text" placeholder="Write your message" disabled class="w-full focus:outline-none disabled:bg-transparent" />
+			<span class="text-gray-500 group-has-[input:invalid]:text-red-500">
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
 					<path
 						stroke-linecap="round"
@@ -37,6 +44,6 @@
 				</svg>
 			</span>
 		</div>
-		<p class="text-sm text-green-500">This is a description</p>
+		<p class="text-sm text-gray-500 group-has-[input:invalid]:text-red-500">This is a disabled input</p>
 	</div>
 </div>
