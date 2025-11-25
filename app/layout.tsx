@@ -28,7 +28,7 @@ export default function RootLayout({
           <meta property="og:type" content="website" />
           <meta
             property="og:image"
-            content="https://res.cloudinary.com/degyjrpjj/image/upload/v1732653153/galsenui/share/og.image_mrp3ew.png"
+            content="https://res.cloudinary.com/degyjrpjj/image/upload/v1732653153/galsenui/og_share.png"
           />
           <meta property="og:title" content="Galsen UI" />
           <meta
@@ -49,7 +49,7 @@ export default function RootLayout({
           />
           <meta
             name="twitter:image"
-            content="https://res.cloudinary.com/degyjrpjj/image/upload/v1732653153/galsenui/share/og.image_mrp3ew.png"
+            content="https://res.cloudinary.com/degyjrpjj/image/upload/v1732653153/galsenui/og_share.png"
           />
           {/* Beam Analytics */}
           <script
