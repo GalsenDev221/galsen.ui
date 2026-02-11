@@ -18,3 +18,20 @@ export interface GalsenUiComponentGroup {
   components: Component[];
   slug: string;
 }
+
+export interface NavigationItem {
+  title: string;
+  slug: string;
+  emoji: string;
+  count: number;
+}
+
+export type ViewportSize = 'mobile' | 'tablet' | 'desktop' | 'full';
+
+export interface ViewportConfig {
+  label: string;
+  width: string;
+  icon: string;
+}
+
+export type DarkModeState = 'light' | 'dark';

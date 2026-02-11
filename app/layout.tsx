@@ -5,6 +5,7 @@ import "@/styles/prism-themes/dracula.css";
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { PreviewDarkModeProvider } from "@/components/context/PreviewDarkModeContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -59,11 +60,13 @@ export default function RootLayout({
           />
         </head>
         <body className={inter.className}>
-          <div className="min-h-screen flex flex-col">
-            <Navbar />
-            <main className="flex-grow">{children}</main>
-            <Footer />
-          </div>
+          <PreviewDarkModeProvider>
+            <div className="min-h-screen flex flex-col">
+              <Navbar />
+              <main className="flex-grow">{children}</main>
+              <Footer />
+            </div>
+          </PreviewDarkModeProvider>
         </body>
       </html>
     </>

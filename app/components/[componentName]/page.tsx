@@ -3,8 +3,13 @@ import { serialize } from "next-mdx-remote/serialize";
 import RemoteMdxWrapper from "@/components/Mdx/RemoteMdxWrapper";
 import RenderHTMLFiles from "@/components/galsenUiComponents/RenderHTMLFiles";
 import H1 from "@/components/Mdx/H1";
-import Link from "next/link";
+import Breadcrumb from "@/components/Navigation/Breadcrumb";
+import ComponentSidebar from "@/components/Navigation/ComponentSidebar";
+import PrevNextNav from "@/components/Navigation/PrevNextNav";
+import TableOfContents from "@/components/Navigation/TableOfContents";
 import path from "path";
+import { getAllComponents, componentsToNavigationItems } from "@/utils/components";
+import { getComponentsNavigation, getPrevNextComponents } from "@/utils/navigation";
 
 type PageProps = {
   params: { componentName: string };
@@ -19,8 +24,14 @@ export default async function Page({ params }: PageProps) {
     `galsen-ui-${params.componentName}.mdx`
   );
 
-  // TODO: Need refactor: Implemented error handling but it should be optimized
   try {
+    // Récupérer tous les composants pour la navigation
+    const allComponents = await getAllComponents();
+    const navigationItems = componentsToNavigationItems(allComponents);
+    const sortedNavItems = getComponentsNavigation(navigationItems);
+    const { prev, next } = getPrevNextComponents(params.componentName, navigationItems);
+
+    // Récupérer le composant actuel
     const componentsData = await fs.readFile(componentMdxPath, "utf8");
     const mdxSource = await serialize(componentsData, {
       parseFrontmatter: true,
@@ -37,23 +48,41 @@ export default async function Page({ params }: PageProps) {
       components: mdxSource.frontmatter.components,
     };
 
+    const currentEmoji = mdxSource.frontmatter.emoji as string;
+    const currentTitle = mdxSource.frontmatter.title as string;
+    const componentsData2 = mdxSource.frontmatter.components;
+
     return (
-      <main className="">
-        <section className="px-4 py-16 sm:max-w-7xl sm:mx-auto">
-          <Link href="/" passHref>
-            <button className="py-2 px-4 mb-3 bg-blue-500 text-white rounded hover:bg-blue-600">
-              Retour
-            </button>
-          </Link>
-          <RemoteMdxWrapper
-            mdxSource={mdxSource}
-            mdxScope={mdxScope}
-            mdxComponents={{
-              h1: H1,
-              RenderHTMLFiles,
-            }}
+      <main className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-200">
+        <div className="lg:grid lg:grid-cols-[208px_minmax(0,1fr)] lg:gap-6 max-w-[1600px] mx-auto">
+          {/* Sidebar Navigation */}
+          <ComponentSidebar
+            components={sortedNavItems}
+            currentSlug={params.componentName}
           />
-        </section>
+
+          {/* Main Content Area with Table of Contents */}
+          <div className="min-w-0 lg:grid lg:grid-cols-[minmax(0,1fr)_224px] lg:gap-6">
+            {/* Main Content */}
+            <div className="min-w-0 px-4 py-8 lg:py-16">
+              <Breadcrumb currentPage={currentTitle} emoji={currentEmoji} />
+              
+              <RemoteMdxWrapper
+                mdxSource={mdxSource}
+                mdxScope={mdxScope}
+                mdxComponents={{
+                  h1: H1,
+                  RenderHTMLFiles,
+                }}
+              />
+
+              <PrevNextNav prev={prev} next={next} />
+            </div>
+
+            {/* Table of Contents */}
+            <TableOfContents components={componentsData2} />
+          </div>
+        </div>
       </main>
     );
   } catch (error) {
