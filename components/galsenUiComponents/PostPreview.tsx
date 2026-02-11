@@ -46,8 +46,8 @@ const PostPreview = ({ file, componentSlug, title }: { title: string; file: stri
 
   if (error) {
     return (
-      <div className="p-6 bg-red-50 border border-red-200 rounded-lg">
-        <p className="text-red-700">Erreur lors du chargement du composant: {error}</p>
+      <div className="p-6 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg">
+        <p className="text-red-700 dark:text-red-400">Erreur lors du chargement du composant: {error}</p>
       </div>
     );
   }

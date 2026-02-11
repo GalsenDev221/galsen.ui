@@ -15,6 +15,54 @@ export function componentPreviewHtml(
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+          tailwind.config = {
+            darkMode: 'class',
+          }
+        </script>
+        <style>
+          .dark body {
+            background-color: #111827;
+            color: #f3f4f6;
+          }
+          .dark table {
+            color: #f3f4f6;
+          }
+          .dark thead {
+            background-color: #1f2937;
+          }
+          .dark th {
+            color: #e5e7eb !important;
+          }
+          .dark td {
+            color: #d1d5db !important;
+          }
+          .dark .divide-neutral-200 > :not([hidden]) ~ :not([hidden]) {
+            border-color: #4b5563;
+          }
+          .dark .divide-y-2 > :not([hidden]) ~ :not([hidden]) {
+            border-color: #4b5563;
+          }
+          .dark .border-gray-300, .dark .border-neutral-300 {
+            border-color: #4b5563;
+          }
+          .dark .bg-white {
+            background-color: #1f2937;
+          }
+          .dark .bg-neutral-200 {
+            background-color: #374151;
+          }
+          .dark button:hover {
+            background-color: #374151 !important;
+          }
+          .dark .text-neutral-500 {
+            color: #9ca3af !important;
+          }
+          .dark input[type="checkbox"] {
+            background-color: #374151;
+            border-color: #6b7280;
+          }
+        </style>
       </head>
 
       <body class="${componentContainer} font-sans antialiased">

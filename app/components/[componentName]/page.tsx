@@ -1,8 +1,5 @@
 import { promises as fs } from "fs";
 import { serialize } from "next-mdx-remote/serialize";
-import RemoteMdxWrapper from "@/components/Mdx/RemoteMdxWrapper";
-import RenderHTMLFiles from "@/components/galsenUiComponents/RenderHTMLFiles";
-import H1 from "@/components/Mdx/H1";
 import Breadcrumb from "@/components/Navigation/Breadcrumb";
 import ComponentSidebar from "@/components/Navigation/ComponentSidebar";
 import PrevNextNav from "@/components/Navigation/PrevNextNav";
@@ -11,6 +8,12 @@ import path from "path";
 import { getAllComponents, componentsToNavigationItems } from "@/utils/components";
 import { getComponentsNavigation, getPrevNextComponents } from "@/utils/navigation";
 import type { Component as ComponentType } from "@/types/Component";
+import dynamic from "next/dynamic";
+
+const RemoteMdxWrapper = dynamic(
+  () => import("@/components/Mdx/RemoteMdxWrapper"),
+  { ssr: false }
+);
 
 type PageProps = {
   params: { componentName: string };
@@ -71,10 +74,6 @@ export default async function Page({ params }: PageProps) {
               <RemoteMdxWrapper
                 mdxSource={mdxSource}
                 mdxScope={mdxScope}
-                mdxComponents={{
-                  h1: H1,
-                  RenderHTMLFiles,
-                }}
               />
 
               <PrevNextNav prev={prev} next={next} />
