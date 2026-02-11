@@ -124,7 +124,7 @@ const ComponentDetails = ({
       </div>
 
       {/* Content Area */}
-      <div className="w-full min-w-0 min-h-[500px] rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700">
+      <div className="w-full min-w-0 h-[700px] rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700">
         {code ? (
           tab === "preview" ? (
             <ViewportPreview code={code} viewport={viewport} darkMode={darkMode} />
