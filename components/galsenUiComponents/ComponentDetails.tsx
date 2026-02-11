@@ -47,8 +47,16 @@ const ComponentDetails = ({
         <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">{title}</h2>
 
         <div className="flex flex-wrap items-center gap-3">
-          {/* Tab Toggle */}
-          <div className="flex items-center gap-1 p-1 bg-gray-100 dark:bg-gray-800 rounded-lg">
+          {/* Preview Controls */}
+          {tab === "preview" && (
+            <ViewportControls
+              currentViewport={viewport}
+              onViewportChange={setViewport}
+            />
+          )}
+
+          {/* Tab Toggle - Fixed to the right */}
+          <div className="flex items-center gap-1 p-1 bg-gray-100 dark:bg-gray-800 rounded-lg ml-auto">
             <button
               onClick={() => setTab("preview")}
               type="button"
@@ -112,16 +120,6 @@ const ComponentDetails = ({
               <span>Code</span>
             </button>
           </div>
-
-          {/* Preview Controls */}
-          {tab === "preview" && (
-            <>
-              <ViewportControls
-                currentViewport={viewport}
-                onViewportChange={setViewport}
-              />
-            </>
-          )}
         </div>
       </div>
 
