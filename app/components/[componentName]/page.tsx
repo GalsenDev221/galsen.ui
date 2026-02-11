@@ -10,6 +10,7 @@ import TableOfContents from "@/components/Navigation/TableOfContents";
 import path from "path";
 import { getAllComponents, componentsToNavigationItems } from "@/utils/components";
 import { getComponentsNavigation, getPrevNextComponents } from "@/utils/navigation";
+import { Component } from "@/types/Component";
 
 type PageProps = {
   params: { componentName: string };
@@ -50,7 +51,7 @@ export default async function Page({ params }: PageProps) {
 
     const currentEmoji = mdxSource.frontmatter.emoji as string;
     const currentTitle = mdxSource.frontmatter.title as string;
-    const componentsData2 = mdxSource.frontmatter.components;
+    const componentsData2 = mdxSource.frontmatter.components as Record<number, Component>;
 
     return (
       <main className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-200">
