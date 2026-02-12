@@ -1,66 +1,16 @@
-import path from "path";
-import { promises as fs } from "fs";
-import { serialize } from "next-mdx-remote/serialize";
-
 import ComponentsGrid from "@/components/ComponentsGrid";
-import { GalsenUiComponentGroup } from "@/types/Component";
-
-async function getComponents() {
-  const galsenUiComponentsPath = path.join(
-    process.cwd(),
-    "public",
-    "data",
-    "components"
-  );
-
-  const galsenUiComponentsFiles = await fs.readdir(galsenUiComponentsPath);
-
-  const components = await Promise.all(
-    galsenUiComponentsFiles.map(async (file) => {
-      const galsenUiComponentPath = path.join(galsenUiComponentsPath, file);
-
-      try {
-        const galsenUiComponentMdxContent = await fs.readFile(
-          galsenUiComponentPath,
-          "utf8"
-        );
-        const { frontmatter: galsenUiComponentSerializedContent } =
-          await serialize<string, GalsenUiComponentGroup>(
-            galsenUiComponentMdxContent,
-            {
-              parseFrontmatter: true,
-            }
-          );
-
-        const galsenUiGroupComponentsCount = Object.values(
-          galsenUiComponentSerializedContent.components
-        ).length;
-
-        return {
-          ...galsenUiComponentSerializedContent,
-          count: galsenUiGroupComponentsCount,
-          slug: file.replace("galsen-ui-", "").replace(".mdx", ""),
-        };
-      } catch (error) {
-        console.error(`Erreur lors de la lecture du fichier ${file}:`, error);
-        return null;
-      }
-    })
-  );
-
-  return components.filter(Boolean) as GalsenUiComponentGroup[];
-}
+import { getAllComponents } from "@/utils/components";
 
 export default async function Home() {
-  const components = await getComponents();
+  const components = await getAllComponents();
 
   return (
     <main className="">
       <section className="px-4 py-16 space-y-6 text-center">
-        <h1 className="mx-auto text-blue-700 max-w-2xl text-4xl font-extrabold leading-none sm:text-5xl">
+        <h1 className="mx-auto text-blue-700 dark:text-blue-400 max-w-2xl text-4xl font-extrabold leading-none sm:text-5xl">
           Découvrez Galsen UI !
         </h1>
-        <p className="mx-auto max-w-xl text-neutral-500">
+        <p className="mx-auto max-w-xl text-neutral-500 dark:text-gray-400">
           Une bibliothèque de composants réutilisables basée sur Tailwind (CSS
           pur bientôt disponible) et conçue pour accélérer le développement
           d&apos;interfaces modernes.

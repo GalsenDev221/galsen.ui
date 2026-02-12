@@ -6,16 +6,19 @@ function removeHTMLExtension(file: string) {
   return file.split('.html').shift() as string;
 }
 
-// PERF: use better names for these props (specially `titles`)
 const RenderHTMLFiles = ({ files, componentSlug, components }: { components: Record<number, { title: string }>; files: string[], componentSlug: string }) => {
 
   return (
-    <div className="mt-8 space-y-12">
+    <div className="mt-8 space-y-12 min-w-0">
       {files.map((file) => {
-        const title = components[removeHTMLExtension(file) as unknown as number].title
+        const fileKey = removeHTMLExtension(file) as unknown as number;
+        const title = components[fileKey].title;
+        const componentId = `component-${fileKey}`;
 
         return (
-          <PostPreview key={file} file={file} title={title} componentSlug={componentSlug} />
+          <div key={file} id={componentId} className="scroll-mt-8">
+            <PostPreview file={file} title={title} componentSlug={componentSlug} />
+          </div>
         )
       })}
     </div>

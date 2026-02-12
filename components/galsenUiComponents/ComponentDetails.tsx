@@ -1,119 +1,143 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels";
-import { componentPreviewHtml } from "@/utils/transformers";
-import Prism from "prismjs";
-require("prismjs/components/prism-cshtml");
+import { useState } from "react";
+import { ViewportSize } from "@/types/Component";
+import ViewportControls from "./ViewportControls";
+import ViewportPreview from "./ViewportPreview";
+import CodeBlock from "./CodeBlock";
+import { usePreviewDarkMode } from "@/components/context/PreviewDarkModeContext";
 
-const ComponentDetails = ({ code, title }: { title: string; code: string }) => {
+const ComponentDetails = ({ 
+  code, 
+  title, 
+  isLoading = false 
+}: { 
+  title: string; 
+  code: string;
+  isLoading?: boolean;
+}) => {
   const [tab, setTab] = useState<"preview" | "code">("preview");
+  const [viewport, setViewport] = useState<ViewportSize>("full");
+  const { darkMode } = usePreviewDarkMode();
 
-  useEffect(() => {
-    Prism.highlightAll();
-  });
+  if (isLoading) {
+    return (
+      <article className="w-full space-y-6">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+          <div className="h-8 bg-gray-200 dark:bg-gray-700 rounded w-48 animate-pulse" />
+          <div className="flex gap-2">
+            <div className="h-10 bg-gray-200 dark:bg-gray-700 rounded w-32 animate-pulse" />
+            <div className="h-10 bg-gray-200 dark:bg-gray-700 rounded w-32 animate-pulse" />
+          </div>
+        </div>
+        <div className="w-full h-[500px] rounded-lg bg-gray-100 dark:bg-gray-800 animate-pulse flex items-center justify-center">
+          <svg className="animate-spin h-10 w-10 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+          </svg>
+        </div>
+      </article>
+    );
+  }
 
   return (
-    <article className="w-full grid grid-cols-1 md:grid-cols-[1fr_auto] gap-y-6 items-center">
-      <h2 className="text-neutral-700 w-[500px] truncate">{title}</h2>
+    <article className="w-full min-w-0 space-y-6">
+      {/* Header with title and controls */}
+      <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+        <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">{title}</h2>
 
-      <div className="p-1.5 bg-blue-50 text-blue-900 font-medium rounded w-fit">
-        <button
-          onClick={() => setTab("preview")}
-          type="button"
-          className={`py-2 px-3 rounded ${
-            tab === "preview" ? "bg-blue-500 text-white" : ""
-          }`}
-        >
-          Aperçu
-        </button>
-        <button
-          onClick={() => setTab("code")}
-          type="button"
-          className={`py-2 px-3 rounded ${
-            tab === "code" ? "bg-blue-500 text-white" : ""
-          }`}
-        >
-          Code
-        </button>
+        <div className="flex flex-wrap items-center gap-3">
+          {/* Preview Controls */}
+          {tab === "preview" && (
+            <ViewportControls
+              currentViewport={viewport}
+              onViewportChange={setViewport}
+            />
+          )}
+
+          {/* Tab Toggle - Fixed to the right */}
+          <div className="flex items-center gap-1 p-1 bg-gray-100 dark:bg-gray-800 rounded-lg ml-auto">
+            <button
+              onClick={() => setTab("preview")}
+              type="button"
+              className={`
+                flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium
+                transition-all duration-200
+                ${
+                  tab === "preview"
+                    ? "bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 shadow-sm"
+                    : "text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200"
+                }
+              `}
+            >
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                />
+              </svg>
+              <span>Aperçu</span>
+            </button>
+            <button
+              onClick={() => setTab("code")}
+              type="button"
+              className={`
+                flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium
+                transition-all duration-200
+                ${
+                  tab === "code"
+                    ? "bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 shadow-sm"
+                    : "text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200"
+                }
+              `}
+            >
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+                />
+              </svg>
+              <span>Code</span>
+            </button>
+          </div>
+        </div>
       </div>
 
-      <div
-        className={`col-span-full h-[600px] ${
-          tab === "preview" ? "overflow-x-hidden" : ""
-        }`}
-      >
-        {tab === "preview" ? (
-          <article className="w-full h-full">
-            {code ? <TabPreview code={code} /> : <p>Loading...</p>}
-          </article>
+      {/* Content Area */}
+      <div className="w-full min-w-0 h-[700px] rounded-lg overflow-hidden border border-gray-200 dark:border-gray-600">
+        {code ? (
+          tab === "preview" ? (
+            <ViewportPreview code={code} viewport={viewport} darkMode={darkMode} />
+          ) : (
+            <CodeBlock code={code} language="html" />
+          )
         ) : (
-          <div className="overflow-hidden h-full bg-red-500 rounded-lg">
-            {code ? <TabCode code={code} /> : <p>Loading...</p>}
+          <div className="flex items-center justify-center h-64">
+            <p className="text-gray-500">Chargement...</p>
           </div>
         )}
       </div>
     </article>
-  );
-};
-
-const TabPreview = ({ code }: { code: string }) => {
-  return (
-    <PanelGroup
-      className="bg-gray-100 rounded-lg relative order !overflow-visible"
-      direction="horizontal"
-    >
-      <Panel defaultSize={100} minSize={35}>
-        <div className="pr-3 pl-5 py-10 w-full h-full flex items-center justify-center bg-gray-100 rounded-lg">
-          <iframe
-            className="w-full h-full flex items-center justify-center"
-            srcDoc={componentPreviewHtml(code)}
-          ></iframe>
-        </div>
-      </Panel>
-      <PanelResizeHandle className="w-2 h-16 rounded-full bg-gray-300 translate-x-4 translate-y-[230px] hidden md:block" />
-      <Panel className="bg-gray-50 rounded-e-lg" defaultSize={0} />
-    </PanelGroup>
-  );
-};
-
-const TabCode = ({ code }: { code: string }) => {
-  const [copied, setCopied] = useState(false);
-
-  const copyToClipboard = () => {
-    navigator.clipboard.writeText(code).then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    });
-  };
-
-  return (
-    <div className="relative w-full h-full">
-      <button
-        onClick={copyToClipboard}
-        className="absolute top-2 right-2 bg-blue-500 hover:bg-blue-600 text-white py-1 px-3 rounded"
-      >
-        {copied ? "Copié !" : "Copier "}
-      </button>
-      <pre className="w-full h-full !m-0 overflow-auto">
-        <code className="language-html">{code}</code>
-      </pre>
-    </div>
-  );
-};
-
-// TODO: implement this later
-const SelectStyle = () => {
-  return (
-    <div className="">
-      <select
-        name="style-select"
-        className="mt-1.5 rounded-lg border-gray-300 text-gray-700 sm:text-sm"
-      >
-        <option value="css">CSS</option>
-        <option value="tailwind">Tailwind</option>
-      </select>
-    </div>
   );
 };
 
