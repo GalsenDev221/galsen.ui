@@ -60,7 +60,7 @@ export default function ComponentSidebar({
         className={`
           fixed lg:sticky top-0 left-0 h-screen lg:h-auto
           w-52 bg-white dark:bg-gray-800 lg:bg-transparent lg:dark:bg-transparent
-          border-r border-gray-200 dark:border-gray-700 lg:border-0
+          border-r border-gray-200 dark:border-gray-600 lg:border-0
           transition-transform duration-300 ease-in-out
           z-40 lg:z-0
           ${isOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"}
@@ -83,8 +83,8 @@ export default function ComponentSidebar({
                     transition-colors duration-150
                     ${
                       isActive
-                        ? "bg-blue-50 text-blue-700 font-medium dark:bg-blue-900/30 dark:text-blue-400"
-                        : "text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700"
+                        ? "bg-blue-50 text-blue-700 font-medium dark:bg-blue-500/20 dark:text-blue-300"
+                        : "text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-700/70"
                     }
                   `}
                 >
@@ -95,8 +95,8 @@ export default function ComponentSidebar({
                       text-xs px-2 py-0.5 rounded-full
                       ${
                         isActive
-                          ? "bg-blue-100 text-blue-700 dark:bg-blue-900/50 dark:text-blue-400"
-                          : "bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-400"
+                          ? "bg-blue-100 text-blue-700 dark:bg-blue-500/30 dark:text-blue-300"
+                          : "bg-gray-100 text-gray-600 dark:bg-gray-700/80 dark:text-gray-300"
                       }
                     `}
                   >
