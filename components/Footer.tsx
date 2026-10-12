@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="mt-14 border-t border-neutral-100">
+    <footer className="mt-14 border-t border-neutral-100 dark:border-gray-700 dark:text-gray-300">
       <div className="px-4 py-5 flex flex-col gap-2 items-center justify-between sm:max-w-7xl sm:mx-auto sm:flex-row md:py-8">
         <span>&copy; Galsen UI. Tous droits réservés.</span>
         <span>
